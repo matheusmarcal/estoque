@@ -1,0 +1,17 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.angular.iconsEnabled": false,
+    "omnisharp.projectLoadTimeout":180,
+    "beautify.language": {
+        "js": {
+            //"type": ["javascript", "json", "typescript", "csharp"],
+            //"filename": [".jshintrc", ".jsbeautifyrc"],
+            "ext": ["js", "json", "ts"]
+            // ^^ to set extensions to be beautified using the javascript beautifier
+        },
+        "css": ["css", "scss"],
+        "html": ["htm", "html"]
+        // ^^ providing just an array sets the VS Code file type
+    },
+    "keyboard.dispatch": "keyCode"
+}

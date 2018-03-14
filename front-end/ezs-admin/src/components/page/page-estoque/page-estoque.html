@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12 col-md-12 form-group">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <legend>{{alias}}</legend>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">CNPJ</label>
+                                <input class="form-control" type="text" placeholder="Cnpj" v-model="model.Empresa">
+                            </div>
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">Produto</label>
+                                <input class="form-control" type="text" placeholder="Produto" v-model="model.Produto">
+                            </div>
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">NFe</label>
+                                <input class="form-control" type="text" placeholder="Nfe" v-model="model.nfe">
+                            </div>
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">Quantidade</label>
+                                <input class="form-control" type="text" placeholder="Quantidade" v-model="model.quantidade">
+                            </div>
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">Posição</label>
+                                <input class="form-control" type="text" placeholder="Posição" v-model="model.posicao">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 form-group text-right">
+                <button class="btn btn-primary" v-on:click="save()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
