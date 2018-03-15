@@ -15,8 +15,8 @@ export class PageEstoqueListaProps implements PageListaPropsInterface {
         new CardTableColumn((item: EstoqueModel) => item.posicao, () => 'Posição')
     ];
     menu = { row: [], main: [] };
-    routePathAdd = AppRouterPath.EMPRESA_ADD;
-    routePathUpdate = AppRouterPath.EMPRESA_UPD;
+    routePathAdd = AppRouterPath.ESTOQUE_ADD;
+    routePathUpdate = AppRouterPath.ESTOQUE_UPD;
     query = Factory.EstoqueFactory.all;
     queryRemove = Factory.EstoqueFactory.disable;
 

@@ -27,6 +27,14 @@
                                 <input class="form-control" type="text" placeholder="Email" v-model="model.email">
                             </div>
                         </div>
+                        <div class="col-12 col-md-9 form-group">
+                            <label class="control-label invisible">Ocupar</label>
+                            <div class="btn-group d-flex" data-toggle="buttons">
+                                <button class="btn btn-primary w-100" v-for="button in ui.tipoButtons" v-on:click="toggleTipoCliente(button.value)" v-bind:class="{'active':isTipoClienteSelected(button.value)}">
+                                    {{button.labelShort}}
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

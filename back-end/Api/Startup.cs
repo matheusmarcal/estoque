@@ -7,6 +7,10 @@ using Api.Configuration;
 using Api.Middlewares.Jwt;
 using Domain;
 using Domain.Common;
+using Domain.EmpresaDomain;
+using Domain.EstoqueDomain;
+using Domain.HistoricoDomain;
+using Domain.ProdutoDomain;
 using Domain.UsuarioDomain;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -62,6 +66,10 @@ namespace Api {
 
             services.AddScoped<BaseContext, BaseContext>();
             services.AddScoped<UsuarioRepository, UsuarioRepository>();
+            services.AddScoped<EstoqueRepository, EstoqueRepository>();
+            services.AddScoped<ProdutoRepository, ProdutoRepository>();
+            services.AddScoped<HistoricoRepository, HistoricoRepository>();
+            services.AddScoped<EmpresaRepository, EmpresaRepository>();
 
             services.AddJwtOptions(Configuration, SigningKey, Environment);
         }

@@ -4,6 +4,7 @@ import { AppRouterPath } from '../../../app.router.path';
 import { AppRouter } from '../../../app.router';
 import { Factory } from '../../../module/constant/factory.constant';
 import { EmpresaModel } from '../../../../../ezs-common/src/model/server/empresa.model';
+import { TipoClienteEnumLabel } from '../../../module/constant/enum-label.constant';
 
 export class PageEmpresaListaProps implements PageListaPropsInterface {
 
@@ -12,7 +13,7 @@ export class PageEmpresaListaProps implements PageListaPropsInterface {
         new CardTableColumn((item: EmpresaModel) => item.nome, () => 'Nome'),
         new CardTableColumn((item: EmpresaModel) => item.telefone, () => 'Telefone'),
         new CardTableColumn((item: EmpresaModel) => item.email, () => 'Email'),
-        new CardTableColumn((item: EmpresaModel) => item.tipo, () => 'Tipo')
+        new CardTableColumn((item: EmpresaModel) => TipoClienteEnumLabel.find(x=>x.value==item.tipo).labelShort, () => 'Tipo')
     ];
     menu = { row: [], main: [] };
     routePathAdd = AppRouterPath.EMPRESA_ADD;

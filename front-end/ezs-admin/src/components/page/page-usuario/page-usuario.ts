@@ -77,5 +77,4 @@ export class PageUsuarioComponent extends Vue {
             AppBroadcastEventBus.$emit(AppBroadcastEvent.ESCONDER_LOADER);
         }
     }
-
 }

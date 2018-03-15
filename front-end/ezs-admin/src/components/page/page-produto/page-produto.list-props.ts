@@ -12,8 +12,8 @@ export class PageProdutoListaProps implements PageListaPropsInterface {
         new CardTableColumn((item: ProdutoModel) => item.descricao, () => 'Descrição')
     ];
     menu = { row: [], main: [] };
-    routePathAdd = AppRouterPath.EMPRESA_ADD;
-    routePathUpdate = AppRouterPath.EMPRESA_UPD;
+    routePathAdd = AppRouterPath.PRODUTO_ADD;
+    routePathUpdate = AppRouterPath.PRODUTO_UPD;
     query = Factory.ProdutoFactory.all;
     queryRemove = Factory.ProdutoFactory.disable;
 

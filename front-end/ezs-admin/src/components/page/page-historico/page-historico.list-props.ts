@@ -14,8 +14,8 @@ export class PageHistoricoListaProps implements PageListaPropsInterface {
         new CardTableColumn((item: HistoricoModel) => item.quantidade, () => 'Quantidade'),
     ];
     menu = { row: [], main: [] };
-    routePathAdd = AppRouterPath.EMPRESA_ADD;
-    routePathUpdate = AppRouterPath.EMPRESA_UPD;
+    routePathAdd = AppRouterPath.HISTORICO_ADD;
+    routePathUpdate = AppRouterPath.HISTORICO_UPD;
     query = Factory.HistoricoFactory.all;
     queryRemove = Factory.HistoricoFactory.disable;
 

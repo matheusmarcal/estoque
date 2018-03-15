@@ -15,7 +15,7 @@ export enum AppRouterPath {
 
         HISTORICO = '/historico',
         HISTORICO_ADD = '/hsitorico/add',
-        HSITORICO_UPD = '/historico/:id/upd',
+        HISTORICO_UPD = '/historico/:id/upd',
 
         EMPRESA = '/empresa',
         EMPRESA_ADD = '/empresa/add',

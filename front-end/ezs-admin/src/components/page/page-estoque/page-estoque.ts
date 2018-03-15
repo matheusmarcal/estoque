@@ -8,6 +8,7 @@ import { EstoqueModel } from '../../../../../ezs-common/src/model/server/estoque
 import { NotifyUtil, NOTIFY_TYPE } from '../../../../../ezs-common/src/util/notify/notify.util';
 import { I18N_MESSAGE } from '../../../../../ezs-common/src/constant/i18n-template-messages.contant';
 import { ApplicationService } from '../../../module/service/application.service';
+import { ProdutoModel } from '../../../../../ezs-common/src/model/server/produto.model';
 
 interface UI {
     Estoques: Array<EstoqueModel>;
@@ -31,6 +32,15 @@ export class PageEstoqueComponent extends Vue {
 
     created() {
 
+    }
+
+    queryProduto = Factory.ProdutoFactory.allByTermo;
+
+    produtoLabel= (item: ProdutoModel) => {
+        let labelObj = {} as any;
+        labelObj.key = item.label;
+        labelObj.label = `<div><span>${item.descricao}</span><div><div><span style="float:left;">${item.codigo}</span></div>`;
+        return labelObj;
     }
     
     async mounted() {

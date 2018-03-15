@@ -10,6 +10,11 @@ export class EmpresaModel  extends BaseModel < number > {
     cnpj: string;
     telefone: string;
     email: string;
-    tipo: string;
+    tipo: TipoClieteModel;
 
+}
+export enum TipoClieteModel {
+    Cliente = 0,
+    Fornecedor = 1,
+    Ambos = 2
 }

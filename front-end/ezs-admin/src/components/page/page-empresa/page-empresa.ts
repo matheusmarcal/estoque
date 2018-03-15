@@ -4,13 +4,15 @@ import { AppBroadcastEventBus, AppBroadcastEvent } from '../../../app.broadcast-
 import { RouterPathType } from '../../../../../ezs-common/src/model/client/router-path-type.model';
 import { AppRouter } from '../../../app.router';
 import { Factory } from '../../../module/constant/factory.constant';
-import { EmpresaModel } from '../../../../../ezs-common/src/model/server/empresa.model';
+import { EmpresaModel, TipoClieteModel } from '../../../../../ezs-common/src/model/server/empresa.model';
 import { NotifyUtil, NOTIFY_TYPE } from '../../../../../ezs-common/src/util/notify/notify.util';
 import { I18N_MESSAGE } from '../../../../../ezs-common/src/constant/i18n-template-messages.contant';
 import { ApplicationService } from '../../../module/service/application.service';
+import { TipoClienteEnumLabel } from '../../../module/constant/enum-label.constant';
 
 interface UI {
     Empresas: Array<EmpresaModel>;
+    tipoButtons: Array < any > ;
 }
 
 @Component({
@@ -25,6 +27,11 @@ export class PageEmpresaComponent extends Vue {
     
     model: EmpresaModel = new EmpresaModel();
     
+    ui: UI = {
+        Empresas: undefined,
+        tipoButtons: TipoClienteEnumLabel
+    };
+
     constructor() {
         super();
     }
@@ -70,6 +77,14 @@ export class PageEmpresaComponent extends Vue {
         finally {
             AppBroadcastEventBus.$emit(AppBroadcastEvent.ESCONDER_LOADER);
         }
+    }
+
+    public toggleTipoCliente(tipo: TipoClieteModel) {
+            this.model.tipo = tipo;
+    }
+
+    public isTipoClienteSelected(tipo: TipoClieteModel) {
+        return this.model.tipo === tipo;
     }
 
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Domain.ProdutoDomain;
@@ -35,6 +36,14 @@ namespace Api.ProdutoApi {
 
         public List < ProdutoVM > All() {
             return this._ProdutoRepository.GetAll(true).Select(x => ProdutoAdapter.ToViewModel(x, true)).ToList();
+        }
+
+        public List<ProdutoVM> GetProdutoByTermo(string codigo) {
+            return this._ProdutoRepository.GetAllByTermo(codigo).Select(x => ProdutoAdapter.ToViewModel(x, true)).ToList();
+        }
+
+        public List<ProdutoVM> AllByTermo(string termo) {
+            return this._ProdutoRepository.GetAllByTermo(termo).Select(x=>ProdutoAdapter.ToViewModel(x,true)).ToList();
         }
     }
 }
