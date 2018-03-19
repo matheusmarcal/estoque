@@ -31,5 +31,14 @@ namespace Api.EstoqueApi {
             return model;
         }
 
+        public static EstoqueProdutoVM ToEstoqueProdutoViewModel(Estoque model, int disponivel,bool deep) {
+            var vm = new EstoqueProdutoVM();
+
+            vm.Produto = model.Produto;
+            vm.Disponivel = disponivel;
+
+            return vm;
+        }
+
     }
 }

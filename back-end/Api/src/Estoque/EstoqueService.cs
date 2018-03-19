@@ -36,5 +36,9 @@ namespace Api.EstoqueApi {
         public List < EstoqueVM > All() {
             return this._estoqueRepository.GetAll(true).Select(x => EstoqueAdapter.ToViewModel(x, true)).ToList();
         }
+
+        public List < EstoqueProdutoVM > EstoqueGeral() {
+            return this._estoqueRepository.GetAllDistinctByProduto().Select(x=> EstoqueAdapter.ToEstoqueProdutoViewModel(x,this._estoqueRepository.GetDisponiveisByProduto(x.Produto.ID), true)).ToList();
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace Domain.EstoqueDomain {
     public class Estoque
     {
         public int ID { get; set; }
-        public float Quantidade { get; set; }
+        public int Quantidade { get; set; }
         public string Op { get; set; }
         public string Posicao { get; set; }
         public string Nfe { get; set; }

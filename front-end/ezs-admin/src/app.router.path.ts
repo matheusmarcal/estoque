@@ -26,6 +26,7 @@ export enum AppRouterPath {
         PRODUTO_UPD = '/produto/:id/upd',
 
         ESTOQUE = '/estoque',
+        ESTOQUE_GERAL = '/estoque/geral',
         ESTOQUE_ADD = '/estoque/add',
         ESTOQUE_UPD = '/estoque/:id/upd/',
 

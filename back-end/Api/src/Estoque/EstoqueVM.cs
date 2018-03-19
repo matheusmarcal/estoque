@@ -5,7 +5,7 @@ using Domain.ProdutoDomain;
 
 namespace Api.EstoqueApi {
     public class EstoqueVM : BaseVM<int> {
-        public float Quantidade { get; set; }
+        public int Quantidade { get; set; }
         public string Op { get; set; }
         public string Posicao { get; set; }
         public string Nfe { get; set; }

@@ -12,11 +12,15 @@
                         <div class="row">
                             <div class="col-12 col-md-3 form-group">
                                 <label class="control-label">Empresa</label>
-                                <input class="form-control" type="text" placeholder="Cnpj" v-model="model.Empresa">
+                                <selector v-model="model.Empresa" v-bind:query="queryEmpresa" placeholder="Empresa" v-bind:label="empresaLabel"></selector>
                             </div>
                             <div class="col-12 col-md-3 form-group">
                                 <label class="control-label">Produto</label>
                                 <selector v-model="model.Produto" v-bind:query="queryProduto" placeholder="Produto" v-bind:label="produtoLabel"></selector>
+                            </div>
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">OP</label>
+                                <selector v-model="model.Op" v-bind:query="text" placeholder="Ordem de Produção" v-bind:label="model.op"></selector>
                             </div>
                             <div class="col-12 col-md-3 form-group">
                                 <label class="control-label">NFe</label>

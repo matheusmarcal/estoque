@@ -7,7 +7,7 @@ namespace Api.HistoricoApi {
     public class HistoricoVM : BaseVM<int> {
         public Estoque Estoque { get; set; }
         public Empresa Empresa { get; set; }
-        public float Quantidade { get; set; }
+        public int Quantidade { get; set; }
         public string Nfe { get; set; }
 
     }

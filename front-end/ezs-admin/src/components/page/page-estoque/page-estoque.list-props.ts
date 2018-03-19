@@ -8,8 +8,9 @@ import { EstoqueModel } from '../../../../../ezs-common/src/model/server/estoque
 export class PageEstoqueListaProps implements PageListaPropsInterface {
 
     columns = [
-        new CardTableColumn((item: EstoqueModel) => item.Empresa, () => 'CNPJ'),
-        new CardTableColumn((item: EstoqueModel) => item.Produto, () => 'Produto'),
+        new CardTableColumn((item: EstoqueModel) => item.Empresa.nome, () => 'CNPJ'),
+        new CardTableColumn((item: EstoqueModel) => item.Produto.descricao, () => 'Produto'),
+        new CardTableColumn((item: EstoqueModel) => item.op, () => 'Op'),
         new CardTableColumn((item: EstoqueModel) => item.nfe, () => 'NFe'),
         new CardTableColumn((item: EstoqueModel) => item.quantidade, () => 'Quantidade'),
         new CardTableColumn((item: EstoqueModel) => item.posicao, () => 'Posição')

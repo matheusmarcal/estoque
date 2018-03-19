@@ -1,4 +1,6 @@
 import { BaseModel } from './base.model';
+import { EmpresaModel } from './empresa.model';
+import { ProdutoModel } from './produto.model';
 
 export class EstoqueModel  extends BaseModel < number > {
 
@@ -6,8 +8,9 @@ export class EstoqueModel  extends BaseModel < number > {
         super();
     }
 
-    Empresa: string;
-    Produto: string;
+    Empresa: EmpresaModel;
+    Produto: ProdutoModel;
+    op: string;
     quantidade: string;
     nfe: string;
     posicao: string;

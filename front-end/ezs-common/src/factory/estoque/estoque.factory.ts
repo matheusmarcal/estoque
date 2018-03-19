@@ -1,5 +1,6 @@
 import { BaseFactory } from './../base.factory';
 import { EstoqueModel } from './../../model/server/estoque.model';
+import { EstoqueGeralModel } from '../../model/server/estoque-geral.model';
 
 export class Factory extends BaseFactory {
 
@@ -48,6 +49,16 @@ export class Factory extends BaseFactory {
     public all = async () => {
         try {
             let result = await this.get('/api/estoque') as Array < EstoqueModel > ;
+            return result;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+
+    public allGeral = async () => {
+        try {
+            let result = await this.get('/api/estoque/business/geral') as Array < EstoqueGeralModel > ;
             return result;
         }
         catch (error) {

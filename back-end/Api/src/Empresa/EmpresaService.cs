@@ -36,5 +36,12 @@ namespace Api.EmpresaApi {
         public List < EmpresaVM > All() {
             return this._EmpresaRepository.GetAll(true).Select(x => EmpresaAdapter.ToViewModel(x, true)).ToList();
         }
+        public List<EmpresaVM> GetEmpresaByTermo(string nome) {
+            return this._EmpresaRepository.GetAllByTermo(nome).Select(x => EmpresaAdapter.ToViewModel(x, true)).ToList();
+        }
+
+        public List<EmpresaVM> AllByTermo(string termo) {
+            return this._EmpresaRepository.GetAllByTermo(termo).Select(x=>EmpresaAdapter.ToViewModel(x,true)).ToList();
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace Api.HistoricoApi {
             var vm = new HistoricoVM();
             vm.ID = model.ID;
             vm.Estoque = model.Estoque;
-            vm.Empresa = model.Empresa;
+            vm.Empresa = model.Comprador;
             vm.Quantidade = model.Quantidade;
             vm.Nfe = model.Nfe;
 
@@ -20,7 +20,7 @@ namespace Api.HistoricoApi {
             
             model.ID = vm.ID;
             model.Estoque = vm.Estoque;
-            model.Empresa = vm.Empresa;
+            model.Comprador = vm.Empresa;
             model.Quantidade = vm.Quantidade;
             model.Nfe = vm.Nfe;
 

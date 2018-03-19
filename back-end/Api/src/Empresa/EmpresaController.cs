@@ -29,7 +29,7 @@ namespace Api.EmpresaApi {
             this._empresaService.Disable(id);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("detail/{id}")]
         public EmpresaVM Detail(int id) {
             return this._empresaService.Detail(id);
         }
@@ -37,6 +37,13 @@ namespace Api.EmpresaApi {
         [HttpGet]
         public List<EmpresaVM> All() {
             return this._empresaService.All();
+        }
+        [HttpGet("termo")]
+        public List<EmpresaVM> AllProdutos([FromQuery]string termo) {
+            if(termo==null){
+                termo="";
+            }
+            return this._empresaService.AllByTermo(termo);
         }
 
     }

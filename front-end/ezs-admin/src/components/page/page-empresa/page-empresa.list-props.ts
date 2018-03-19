@@ -13,7 +13,7 @@ export class PageEmpresaListaProps implements PageListaPropsInterface {
         new CardTableColumn((item: EmpresaModel) => item.nome, () => 'Nome'),
         new CardTableColumn((item: EmpresaModel) => item.telefone, () => 'Telefone'),
         new CardTableColumn((item: EmpresaModel) => item.email, () => 'Email'),
-        new CardTableColumn((item: EmpresaModel) => TipoClienteEnumLabel.find(x=>x.value==item.tipo).labelShort, () => 'Tipo')
+        new CardTableColumn((item: EmpresaModel) => TipoClienteEnumLabel.find(x => x.value==item.tipo).labelShort, () => 'Tipo')
     ];
     menu = { row: [], main: [] };
     routePathAdd = AppRouterPath.EMPRESA_ADD;

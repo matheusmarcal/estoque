@@ -15,6 +15,7 @@ import { PageProdutoListaProps } from '../../components/page/page-produto/page-p
 import { PageEstoqueListaProps } from '../../components/page/page-estoque/page-estoque.list-props';
 import { PageHistoricoComponent } from '../../components/page/page-historico';
 import { PageHistoricoListaProps } from '../../components/page/page-historico/page-historico.list-props';
+import { PageEstoqueGeralListaProps } from '../../components/page/page-estoque/page-estoque.geral.list-props';
 
 
 export const COMPONENT_ROUTE_CONSTANT: Array < BaseRouteConfig > = [
@@ -30,6 +31,7 @@ export const COMPONENT_ROUTE_CONSTANT: Array < BaseRouteConfig > = [
     { menu: false, type: RouterPathType.add, path: AppRouterPath.EMPRESA_UPD, name: AppRouterPath.EMPRESA_UPD, component: PageEmpresaComponent, alias: 'Empresa' },
 
     { menu: true, type: RouterPathType.list, path: AppRouterPath.ESTOQUE, name: AppRouterPath.ESTOQUE, component: PageListaComponent, alias: 'Estoques', props: new PageEstoqueListaProps() },
+    { menu: true, type: RouterPathType.list, path: AppRouterPath.ESTOQUE_GERAL, name: AppRouterPath.ESTOQUE_GERAL, component: PageListaComponent, alias: 'Estoque Geral', props: new PageEstoqueGeralListaProps() },
     { menu: false, type: RouterPathType.add, path: AppRouterPath.ESTOQUE_ADD, name: AppRouterPath.ESTOQUE_ADD, component: PageEstoqueComponent, alias: 'Estoque' },
     { menu: false, type: RouterPathType.add, path: AppRouterPath.ESTOQUE_UPD, name: AppRouterPath.ESTOQUE_UPD, component: PageEstoqueComponent, alias: 'Estoque' },
 

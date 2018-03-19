@@ -18,6 +18,12 @@ namespace Domain.EstoqueDomain {
         }
 
         public void Add(Estoque model) {
+            if(model.Empresa != null) {
+                this.db.Attach(model.Empresa);
+            }
+            if(model.Produto != null) {
+                this.db.Attach(model.Produto);
+            }
             this.db.Estoques.Add(model);
         }
 
@@ -29,8 +35,8 @@ namespace Domain.EstoqueDomain {
                 this.db.Attach(model.Produto);
             }
             var attachedEstoque = this.db.Estoques.Find(model.ID);
-            attachedEstoque.Empresa.ID = model.Empresa.ID;
-            attachedEstoque.Produto.ID = model.Produto.ID;
+            attachedEstoque.Empresa = this.db.Empresas.SingleOrDefault(x => x.ID == model.ID);
+            attachedEstoque.Produto = this.db.Produtos.SingleOrDefault(x => x.ID == model.ID);;
             attachedEstoque.Nfe = model.Nfe;
             attachedEstoque.Op = model.Op;
             attachedEstoque.Quantidade = model.Quantidade;
@@ -55,6 +61,36 @@ namespace Domain.EstoqueDomain {
         public Estoque GetEstoque(int ID) {
             return this.db.Estoques
             .SingleOrDefault(x => x.ID == ID);
+        }
+
+        public int GetDisponiveis(int ID){
+            var historicos = this.db.Historicos.Where(x=>x.Estoque.ID==ID).ToList();
+            var disponiveis = this.db.Estoques.SingleOrDefault(x=>x.ID==ID).Quantidade;
+            historicos.ForEach(x=>{
+                disponiveis-=x.Quantidade;
+            });
+
+            return disponiveis;
+        }
+
+        public int GetDisponiveisByProduto(int ID) {
+            var estoques = this.db.Estoques.Include(x=>x.Produto).Where(x=>x.Produto.ID == ID).ToList();
+            var disponiveis = 0;
+            estoques.ForEach(x=>{
+                disponiveis+=x.Quantidade;
+            });
+
+            var historicos = this.db.Historicos.Include(x=>x.Estoque).Where(x=>x.Estoque.Produto.ID==ID).ToList();
+            historicos.ForEach(x=>{
+                disponiveis-=x.Quantidade;
+            });
+
+            return disponiveis;
+        }
+
+        public List <Estoque> GetAllDistinctByProduto() {
+            return this.db.Estoques.GroupBy(x=>x.Produto.ID).Select(x=>x.First()).ToList();
+
         }
 
         public Estoque GetByCodigo(string codigo) {

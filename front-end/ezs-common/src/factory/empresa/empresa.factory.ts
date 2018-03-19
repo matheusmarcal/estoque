@@ -55,4 +55,18 @@ export class Factory extends BaseFactory {
         }
     }
 
+    public allByTermo = async (termo:string) => {
+        try {
+            let result = await this.get('/api/empresa/termo',{
+                params:{
+                    termo:termo
+                }
+            }) as Array < EmpresaModel > ;
+            return result;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+
 }

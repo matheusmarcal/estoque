@@ -4,10 +4,10 @@ import { CardTableColumn, CardTableMenu } from "../../../../../ezs-common/src/co
 export interface PageListaPropsInterface {
     columns: Array < CardTableColumn > ;
     menu: CardTableMenu;
-    routePathAdd: AppRouterPath;
-    routePathUpdate: AppRouterPath;
+    routePathAdd ?: AppRouterPath;
+    routePathUpdate ?: AppRouterPath;
     query: any;
     queryAdd ? : any;
     queryUpdate ? : any;
-    queryRemove: any;
+    queryRemove ?: any;
 }
