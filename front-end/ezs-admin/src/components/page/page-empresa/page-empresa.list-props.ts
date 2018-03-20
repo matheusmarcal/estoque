@@ -9,11 +9,26 @@ import { TipoClienteEnumLabel } from '../../../module/constant/enum-label.consta
 export class PageEmpresaListaProps implements PageListaPropsInterface {
 
     columns = [
-        new CardTableColumn((item: EmpresaModel) => item.cnpj, () => 'CNPJ'),
-        new CardTableColumn((item: EmpresaModel) => item.nome, () => 'Nome'),
-        new CardTableColumn((item: EmpresaModel) => item.telefone, () => 'Telefone'),
-        new CardTableColumn((item: EmpresaModel) => item.email, () => 'Email'),
-        new CardTableColumn((item: EmpresaModel) => TipoClienteEnumLabel.find(x => x.value==item.tipo).labelShort, () => 'Tipo')
+        new CardTableColumn({
+            value: (item: EmpresaModel) => item.nome,
+            label: () => 'CNPJ'
+        }),
+        new CardTableColumn({
+            value: (item: EmpresaModel) => item.nome,
+            label: () => 'Nome'
+        }),
+        new CardTableColumn({
+            value: (item: EmpresaModel) => item.nome,
+            label: () => 'Telefone'
+        }),
+        new CardTableColumn({
+            value: (item: EmpresaModel) => item.nome,
+            label: () => 'Email'
+        }),
+        new CardTableColumn({
+            value: (item: EmpresaModel) => TipoClienteEnumLabel.find(x => x.value === item.tipo).labelShort,
+            label: () => 'Tipo'
+        })
     ];
     menu = { row: [], main: [] };
     routePathAdd = AppRouterPath.EMPRESA_ADD;

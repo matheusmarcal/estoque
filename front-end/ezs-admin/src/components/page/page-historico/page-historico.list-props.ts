@@ -8,10 +8,22 @@ import { HistoricoModel } from '../../../../../ezs-common/src/model/server/histo
 export class PageHistoricoListaProps implements PageListaPropsInterface {
 
     columns = [
-        new CardTableColumn((item: HistoricoModel) => item.Empresa, () => 'CNPJ'),
-        new CardTableColumn((item: HistoricoModel) => item.Estoque, () => 'Produto'),
-        new CardTableColumn((item: HistoricoModel) => item.nfe, () => 'NFe'),
-        new CardTableColumn((item: HistoricoModel) => item.quantidade, () => 'Quantidade'),
+        new CardTableColumn({
+            value: (item: HistoricoModel) => item.Empresa,
+            label: () => 'CNPJ'
+        }),
+        new CardTableColumn({
+            value: (item: HistoricoModel) => item.Estoque,
+            label: () => 'Produto'
+        }),
+        new CardTableColumn({
+            value: (item: HistoricoModel) => item.nfe,
+            label: () => 'NFe'
+        }),
+        new CardTableColumn({
+            value: (item: HistoricoModel) => item.quantidade,
+            label: () => 'Quantidade'
+        })
     ];
     menu = { row: [], main: [] };
     routePathAdd = AppRouterPath.HISTORICO_ADD;

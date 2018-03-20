@@ -2,11 +2,11 @@ import { Component, Vue } from 'vue-property-decorator';
 import { NavbarComponent } from './components/layout/navbar/index';
 import { LoaderCompactComponent } from '../../ezs-common/src/component/loader-compact/loader-compact';
 import { AppRouter } from './app.router';
-import { AutenticacaoService } from './module/service/autenticacao.service';
-import { ApplicationService } from './module/service/application.service';
 import { AppBroadcastEventBus, AppBroadcastEvent } from './app.broadcast-event-bus';
 import { AppRouterPath } from './app.router.path';
 import { I18N_LANG } from '../../ezs-common/src/constant/i18n-template-messages.contant';
+import { ApplicationService } from './module/service/application.service';
+import { AutenticacaoService } from './module/service/autenticacao.service';
 
 @Component({
     router: AppRouter,
@@ -17,7 +17,7 @@ import { I18N_LANG } from '../../ezs-common/src/constant/i18n-template-messages.
 })
 export class AppComponent extends Vue {
 
-    showLoader = false;
+    showLoader = true;
     intervalRefresh: any;
 
     async created() {
@@ -26,21 +26,9 @@ export class AppComponent extends Vue {
     }
 
     async beforeMount() {
-        this.tryAutoAuthentication();
+
     }
-
-    async tryAutoAuthentication() {
-        // AppBroadcastEventBus.$emit(AppBroadcastEvent.EXIBIR_LOADER);
-        // try {
-        //     await AutenticacaoService.authenticate();
-        //     AppBroadcastEventBus.$emit(AppBroadcastEvent.ESCONDER_LOADER);
-        // }
-        // catch (e) {
-        //     AppBroadcastEventBus.$emit(AppBroadcastEvent.ESCONDER_LOADER);
-        // }
-    }
-
-
+ 
     registerBroadcastEvents() {
         AppBroadcastEventBus.$on(AppBroadcastEvent.EXIBIR_LOADER, () => {
             this.showLoader = true;
@@ -56,6 +44,8 @@ export class AppComponent extends Vue {
             }
             catch (e) {
                 AutenticacaoService.desautenticar();
+            }
+            finally {
             }
         });
 

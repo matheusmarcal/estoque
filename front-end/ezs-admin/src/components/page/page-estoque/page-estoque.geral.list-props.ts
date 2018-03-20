@@ -8,8 +8,14 @@ import { EstoqueGeralModel } from '../../../../../ezs-common/src/model/server/es
 export class PageEstoqueGeralListaProps implements PageListaPropsInterface {
 
     columns = [
-        new CardTableColumn((item: EstoqueGeralModel) => item.Produto.codigo, () => 'Produto'),
-        new CardTableColumn((item: EstoqueGeralModel) => item.disponivel, () => 'Disponivel')
+        new CardTableColumn({
+            value: (item: EstoqueGeralModel) => item.Produto.codigo,
+            label: () => 'Produto'
+        }),
+        new CardTableColumn({
+            value: (item: EstoqueGeralModel) => item.disponivel,
+            label: () => 'Disponivel'
+        })
     ];
     menu = { row: [], main: [] };
     query = Factory.EstoqueFactory.allGeral;

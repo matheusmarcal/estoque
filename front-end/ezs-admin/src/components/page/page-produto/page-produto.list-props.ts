@@ -8,8 +8,14 @@ import { ProdutoModel } from '../../../../../ezs-common/src/model/server/produto
 export class PageProdutoListaProps implements PageListaPropsInterface {
 
     columns = [
-        new CardTableColumn((item: ProdutoModel) => item.codigo, () => 'Código'),
-        new CardTableColumn((item: ProdutoModel) => item.descricao, () => 'Descrição')
+        new CardTableColumn({
+            value: (item: ProdutoModel) => item.codigo,
+            label: () => 'Código'
+        }),
+        new CardTableColumn({
+            value: (item: ProdutoModel) => item.descricao,
+            label: () => 'Descrição'
+        })
     ];
     menu = { row: [], main: [] };
     routePathAdd = AppRouterPath.PRODUTO_ADD;

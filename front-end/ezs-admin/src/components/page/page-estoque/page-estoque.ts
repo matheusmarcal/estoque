@@ -6,10 +6,10 @@ import { AppRouter } from '../../../app.router';
 import { Factory } from '../../../module/constant/factory.constant';
 import { EstoqueModel } from '../../../../../ezs-common/src/model/server/estoque.model';
 import { NotifyUtil, NOTIFY_TYPE } from '../../../../../ezs-common/src/util/notify/notify.util';
-import { I18N_MESSAGE } from '../../../../../ezs-common/src/constant/i18n-template-messages.contant';
 import { ApplicationService } from '../../../module/service/application.service';
 import { ProdutoModel } from '../../../../../ezs-common/src/model/server/produto.model';
 import { EmpresaModel } from '../../../../../ezs-common/src/model/server/empresa.model';
+import { I18N_ERROR_GENERIC } from '../../../../../ezs-common/src/constant/i18n-template-messages.contant';
 
 interface UI {
     Estoques: Array<EstoqueModel>;
@@ -60,7 +60,7 @@ export class PageEstoqueComponent extends Vue {
             }
         }
         catch (e) {
-            NotifyUtil.notifyI18NError(I18N_MESSAGE.CONSULTAR_FALHA, ApplicationService.getLanguage(), NOTIFY_TYPE.ERROR, e);
+            NotifyUtil.exception(e, ApplicationService.getLanguage());
             AppRouter.back();
         }
         finally {
@@ -81,10 +81,10 @@ export class PageEstoqueComponent extends Vue {
                     break;
                 }
             }
-            NotifyUtil.notifyI18N(I18N_MESSAGE.MODELO_SALVAR, ApplicationService.getLanguage(), NOTIFY_TYPE.SUCCESS);
+            NotifyUtil.successG(I18N_ERROR_GENERIC.MODELO_SALVAR, ApplicationService.getLanguage());
         }
         catch (e) {
-            NotifyUtil.notifyI18NError(I18N_MESSAGE.MODELO_SALVAR_FALHA, ApplicationService.getLanguage(), NOTIFY_TYPE.ERROR, e);
+            NotifyUtil.exception(e, ApplicationService.getLanguage());
         }
         finally {
             AppBroadcastEventBus.$emit(AppBroadcastEvent.ESCONDER_LOADER);

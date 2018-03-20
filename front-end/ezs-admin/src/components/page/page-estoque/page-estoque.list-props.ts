@@ -8,12 +8,30 @@ import { EstoqueModel } from '../../../../../ezs-common/src/model/server/estoque
 export class PageEstoqueListaProps implements PageListaPropsInterface {
 
     columns = [
-        new CardTableColumn((item: EstoqueModel) => item.Empresa.nome, () => 'CNPJ'),
-        new CardTableColumn((item: EstoqueModel) => item.Produto.descricao, () => 'Produto'),
-        new CardTableColumn((item: EstoqueModel) => item.op, () => 'Op'),
-        new CardTableColumn((item: EstoqueModel) => item.nfe, () => 'NFe'),
-        new CardTableColumn((item: EstoqueModel) => item.quantidade, () => 'Quantidade'),
-        new CardTableColumn((item: EstoqueModel) => item.posicao, () => 'Posição')
+        new CardTableColumn({
+            value: (item: EstoqueModel) => item.Empresa.nome,
+            label: () => 'CNPJ'
+        }),
+        new CardTableColumn({
+            value: (item: EstoqueModel) => item.Produto.descricao,
+            label: () => 'Produto'
+        }),
+        new CardTableColumn({
+            value: (item: EstoqueModel) => item.op,
+            label: () => 'OP'
+        }),
+        new CardTableColumn({
+            value: (item: EstoqueModel) => item.nfe,
+            label: () => 'NFe'
+        }),
+        new CardTableColumn({
+            value: (item: EstoqueModel) => item.quantidade,
+            label: () => 'Quantidade'
+        }),
+        new CardTableColumn({
+            value: (item: EstoqueModel) => item.posicao,
+            label: () => 'Posição'
+        })
     ];
     menu = { row: [], main: [] };
     routePathAdd = AppRouterPath.ESTOQUE_ADD;

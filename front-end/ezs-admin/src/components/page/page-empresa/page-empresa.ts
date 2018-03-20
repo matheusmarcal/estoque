@@ -6,12 +6,12 @@ import { AppRouter } from '../../../app.router';
 import { Factory } from '../../../module/constant/factory.constant';
 import { EmpresaModel, TipoClieteModel } from '../../../../../ezs-common/src/model/server/empresa.model';
 import { NotifyUtil, NOTIFY_TYPE } from '../../../../../ezs-common/src/util/notify/notify.util';
-import { I18N_MESSAGE } from '../../../../../ezs-common/src/constant/i18n-template-messages.contant';
 import { ApplicationService } from '../../../module/service/application.service';
 import { TipoClienteEnumLabel } from '../../../module/constant/enum-label.constant';
+import { I18N_ERROR_GENERIC } from '../../../../../ezs-common/src/constant/i18n-template-messages.contant';
 
 interface UI {
-    Empresas: Array<EmpresaModel>;
+    Empresas: Array < EmpresaModel > ;
     tipoButtons: Array < any > ;
 }
 
@@ -24,9 +24,9 @@ export class PageEmpresaComponent extends Vue {
     alias: string;
     @Prop()
     operation: RouterPathType;
-    
+
     model: EmpresaModel = new EmpresaModel();
-    
+
     ui: UI = {
         Empresas: undefined,
         tipoButtons: TipoClienteEnumLabel
@@ -39,16 +39,16 @@ export class PageEmpresaComponent extends Vue {
     created() {
 
     }
-    
+
     async mounted() {
         try {
             AppBroadcastEventBus.$emit(AppBroadcastEvent.EXIBIR_LOADER);
             if (this.operation === RouterPathType.upd) {
-                this.model = await Factory.EmpresaFactory.detail(this.$route.params.id); 
+                this.model = await Factory.EmpresaFactory.detail(this.$route.params.id);
             }
         }
         catch (e) {
-            NotifyUtil.notifyI18NError(I18N_MESSAGE.CONSULTAR_FALHA, ApplicationService.getLanguage(), NOTIFY_TYPE.ERROR, e);
+            NotifyUtil.exception(e, ApplicationService.getLanguage());
             AppRouter.back();
         }
         finally {
@@ -60,19 +60,21 @@ export class PageEmpresaComponent extends Vue {
         try {
             AppBroadcastEventBus.$emit(AppBroadcastEvent.EXIBIR_LOADER);
             switch (this.operation) {
-                case (RouterPathType.add): {
-                    await Factory.EmpresaFactory.add(this.model);
-                    break;
-                }
-                case (RouterPathType.upd): {
-                    await Factory.EmpresaFactory.update(this.model);
-                    break;
-                }
+                case (RouterPathType.add):
+                    {
+                        await Factory.EmpresaFactory.add(this.model);
+                        break;
+                    }
+                case (RouterPathType.upd):
+                    {
+                        await Factory.EmpresaFactory.update(this.model);
+                        break;
+                    }
             }
-            NotifyUtil.notifyI18N(I18N_MESSAGE.MODELO_SALVAR, ApplicationService.getLanguage(), NOTIFY_TYPE.SUCCESS);
+            NotifyUtil.successG(I18N_ERROR_GENERIC.MODELO_SALVAR, ApplicationService.getLanguage());
         }
         catch (e) {
-            NotifyUtil.notifyI18NError(I18N_MESSAGE.MODELO_SALVAR_FALHA, ApplicationService.getLanguage(), NOTIFY_TYPE.ERROR, e);
+            NotifyUtil.exception(e, ApplicationService.getLanguage());
         }
         finally {
             AppBroadcastEventBus.$emit(AppBroadcastEvent.ESCONDER_LOADER);
@@ -80,7 +82,7 @@ export class PageEmpresaComponent extends Vue {
     }
 
     public toggleTipoCliente(tipo: TipoClieteModel) {
-            this.model.tipo = tipo;
+        this.model.tipo = tipo;
     }
 
     public isTipoClienteSelected(tipo: TipoClieteModel) {

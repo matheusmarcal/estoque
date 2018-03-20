@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12 col-md-12 form-group">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <legend>{{alias}}</legend>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">CNPJ</label>
+                                <input class="form-control" type="text" placeholder="Cnpj" v-model="model.cnpj">
+                            </div>
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">Nome</label>
+                                <input class="form-control" type="text" placeholder="Nome" v-model="model.nome">
+                            </div>
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">Telefone</label>
+                                <input class="form-control" type="text" placeholder="Telefone" v-model="model.telefone">
+                            </div>
+                            <div class="col-12 col-md-3 form-group">
+                                <label class="control-label">Email</label>
+                                <input class="form-control" type="text" placeholder="Email" v-model="model.email">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-9 form-group">
+                            <label class="control-label invisible">Ocupar</label>
+                            <div class="btn-group d-flex" data-toggle="buttons">
+                                <button class="btn btn-primary w-100" v-for="button in ui.tipoButtons" v-on:click="toggleTipoCliente(button.value)" v-bind:class="{'active':isTipoClienteSelected(button.value)}">
+                                    {{button.labelShort}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 form-group text-right">
+                <button class="btn btn-primary" v-on:click="save()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,11 +8,14 @@ import { UsuarioModel } from '../../../../../ezs-common/src/model/server/usuario
 export class PageUsuarioListaProps implements PageListaPropsInterface {
 
     columns = [
-        new CardTableColumn((item: UsuarioModel) => item.username, () => 'Username'),
-        new CardTableColumn((item: UsuarioModel) => item.usuarioInfo && item.usuarioInfo.nome || '', () => 'Nome'),
-        new CardTableColumn((item: UsuarioModel) => item.usuarioInfo && item.usuarioInfo.perfis.indexOf('ALUNO') > -1 ? '<i class ="fa fa-check">' : '', () => 'Aluno'),
-        new CardTableColumn((item: UsuarioModel) => item.usuarioInfo && item.usuarioInfo.perfis.indexOf('PROFESSOR') > -1 ? '<i class ="fa fa-check">' : '', () => 'Professor'),
-        new CardTableColumn((item: UsuarioModel) => item.usuarioInfo && item.usuarioInfo.perfis.indexOf('ADMINISTRADOR') > -1 ? '<i class ="fa fa-check">' : '', () => 'Administrador'),
+        new CardTableColumn({
+            value: (item: UsuarioModel) => item.username,
+            label: () => 'Username'
+        }),
+        new CardTableColumn({
+            value: (item: UsuarioModel) => item.usuarioInfo.nome,
+            label: () => 'Nome'
+        })
     ];
     menu = {
         row: [],

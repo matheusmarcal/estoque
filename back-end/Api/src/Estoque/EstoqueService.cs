@@ -40,5 +40,12 @@ namespace Api.EstoqueApi {
         public List < EstoqueProdutoVM > EstoqueGeral() {
             return this._estoqueRepository.GetAllDistinctByProduto().Select(x=> EstoqueAdapter.ToEstoqueProdutoViewModel(x,this._estoqueRepository.GetDisponiveisByProduto(x.Produto.ID), true)).ToList();
         }
+
+        public List < EstoqueProdutoVM > AllEstoqueGeralByTermo(string termo) {
+            return this._estoqueRepository.GetAllDistinctByProduto()  
+            .Where(x => x.Produto.Codigo.ToLower().Contains(termo.ToLower()) || x.Produto.Descricao.ToLower().Contains(termo.ToLower()))
+            .Select(x=> EstoqueAdapter.ToEstoqueProdutoViewModel(x,this._estoqueRepository.GetDisponiveisByProduto(x.Produto.ID), true))
+            .ToList();
+        }
     }
 }

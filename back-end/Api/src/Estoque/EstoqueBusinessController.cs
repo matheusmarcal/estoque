@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Api.Common.Base;
 using Domain.EstoqueDomain;
 using Domain.UsuarioDomain;
@@ -17,6 +18,11 @@ namespace Api.EstoqueApi {
         [HttpGet("geral")]
         public List <EstoqueProdutoVM> EstoqueGeral() {
             return this._estoqueService.EstoqueGeral();
+        }
+
+        [HttpGet("by-termo")]
+        public List <EstoqueProdutoVM> AllByTermo([FromQuery] string termo) {
+            return this._estoqueService.AllEstoqueGeralByTermo(termo);
         }
 
         
