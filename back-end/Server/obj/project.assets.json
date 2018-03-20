@@ -12866,28 +12866,33 @@
     ]
   },
   "packageFolders": {
-    "/home/matheus/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Matheus Marçal\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/media/matheus/FILES/Dev/estoque/back-end/Server/Server.csproj",
+      "projectUniqueName": "C:\\Users\\Matheus Marçal\\Documentos\\estoque\\back-end\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "/media/matheus/FILES/Dev/estoque/back-end/Server/Server.csproj",
-      "packagesPath": "/home/matheus/.nuget/packages/",
-      "outputPath": "/media/matheus/FILES/Dev/estoque/back-end/Server/obj/",
+      "projectPath": "C:\\Users\\Matheus Marçal\\Documentos\\estoque\\back-end\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\Matheus Marçal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Matheus Marçal\\Documentos\\estoque\\back-end\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/matheus/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Matheus Marçal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

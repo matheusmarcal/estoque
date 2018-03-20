@@ -10,7 +10,7 @@ export class PageEmpresaListaProps implements PageListaPropsInterface {
 
     columns = [
         new CardTableColumn({
-            value: (item: EmpresaModel) => item.nome,
+            value: (item: EmpresaModel) => item.cnpj,
             label: () => 'CNPJ'
         }),
         new CardTableColumn({
@@ -18,11 +18,11 @@ export class PageEmpresaListaProps implements PageListaPropsInterface {
             label: () => 'Nome'
         }),
         new CardTableColumn({
-            value: (item: EmpresaModel) => item.nome,
+            value: (item: EmpresaModel) => item.telefone,
             label: () => 'Telefone'
         }),
         new CardTableColumn({
-            value: (item: EmpresaModel) => item.nome,
+            value: (item: EmpresaModel) => item.email,
             label: () => 'Email'
         }),
         new CardTableColumn({

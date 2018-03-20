@@ -66,6 +66,8 @@ namespace Domain.EstoqueDomain {
 
         public List<Estoque> GetAll(bool ativo) {
             return this.db.Estoques
+            .Include(i => i.Empresa)
+            .Include(i => i.Produto)
             .AsNoTracking()
             .Where(x => x.Quantidade != 0)
             .ToList();

@@ -28,18 +28,18 @@ export const COMPONENT_ROUTE_CONSTANT: Array < BaseRouteConfig > = [
 
     { menu: true, type: RouterPathType.list, path: AppRouterPath.EMPRESA, name: AppRouterPath.EMPRESA, component: PageListaComponent, alias: 'Empresas', props: new PageEmpresaListaProps() },
     { menu: false, type: RouterPathType.add, path: AppRouterPath.EMPRESA_ADD, name: AppRouterPath.EMPRESA_ADD, component: PageEmpresaComponent, alias: 'Empresa' },
-    { menu: false, type: RouterPathType.add, path: AppRouterPath.EMPRESA_UPD, name: AppRouterPath.EMPRESA_UPD, component: PageEmpresaComponent, alias: 'Empresa' },
+    { menu: false, type: RouterPathType.upd, path: AppRouterPath.EMPRESA_UPD, name: AppRouterPath.EMPRESA_UPD, component: PageEmpresaComponent, alias: 'Empresa' },
 
     { menu: true, type: RouterPathType.list, path: AppRouterPath.ESTOQUE, name: AppRouterPath.ESTOQUE, component: PageListaComponent, alias: 'Estoques', props: new PageEstoqueListaProps() },
     { menu: true, type: RouterPathType.list, path: AppRouterPath.ESTOQUE_GERAL, name: AppRouterPath.ESTOQUE_GERAL, component: PageListaComponent, alias: 'Estoque Geral', props: new PageEstoqueGeralListaProps() },
     { menu: false, type: RouterPathType.add, path: AppRouterPath.ESTOQUE_ADD, name: AppRouterPath.ESTOQUE_ADD, component: PageEstoqueComponent, alias: 'Estoque' },
-    { menu: false, type: RouterPathType.add, path: AppRouterPath.ESTOQUE_UPD, name: AppRouterPath.ESTOQUE_UPD, component: PageEstoqueComponent, alias: 'Estoque' },
+    { menu: false, type: RouterPathType.upd, path: AppRouterPath.ESTOQUE_UPD, name: AppRouterPath.ESTOQUE_UPD, component: PageEstoqueComponent, alias: 'Estoque' },
 
     { menu: true, type: RouterPathType.list, path: AppRouterPath.PRODUTO, name: AppRouterPath.PRODUTO, component: PageListaComponent, alias: 'Produtos', props: new PageProdutoListaProps() },
     { menu: false, type: RouterPathType.add, path: AppRouterPath.PRODUTO_ADD, name: AppRouterPath.PRODUTO_ADD, component: PageProdutoComponent, alias: 'Produto' },
-    { menu: false, type: RouterPathType.add, path: AppRouterPath.PRODUTO_UPD, name: AppRouterPath.PRODUTO_UPD, component: PageProdutoComponent, alias: 'Produto' },
+    { menu: false, type: RouterPathType.upd, path: AppRouterPath.PRODUTO_UPD, name: AppRouterPath.PRODUTO_UPD, component: PageProdutoComponent, alias: 'Produto' },
 
     { menu: true, type: RouterPathType.list, path: AppRouterPath.HISTORICO, name: AppRouterPath.HISTORICO, component: PageListaComponent, alias: 'Historicos', props: new PageHistoricoListaProps() },
     { menu: false, type: RouterPathType.add, path: AppRouterPath.HISTORICO_ADD, name: AppRouterPath.HISTORICO_ADD, component: PageHistoricoComponent, alias: 'Historico' },
-    { menu: false, type: RouterPathType.add, path: AppRouterPath.HISTORICO_UPD, name: AppRouterPath.HISTORICO_UPD, component: PageHistoricoComponent, alias: 'Historico' },
+    { menu: false, type: RouterPathType.upd, path: AppRouterPath.HISTORICO_UPD, name: AppRouterPath.HISTORICO_UPD, component: PageHistoricoComponent, alias: 'Historico' },
 ];

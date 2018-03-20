@@ -8,8 +8,8 @@ export class EstoqueModel  extends BaseModel < number > {
         super();
     }
 
-    Empresa: EmpresaModel;
-    Produto: ProdutoModel;
+    empresa: EmpresaModel;
+    produto: ProdutoModel;
     op: string;
     quantidade: string;
     nfe: string;

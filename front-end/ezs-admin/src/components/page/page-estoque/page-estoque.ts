@@ -10,6 +10,7 @@ import { ApplicationService } from '../../../module/service/application.service'
 import { ProdutoModel } from '../../../../../ezs-common/src/model/server/produto.model';
 import { EmpresaModel } from '../../../../../ezs-common/src/model/server/empresa.model';
 import { I18N_ERROR_GENERIC } from '../../../../../ezs-common/src/constant/i18n-template-messages.contant';
+import { AppRouterPath } from '../../../app.router.path';
 
 interface UI {
     Estoques: Array<EstoqueModel>;
@@ -40,14 +41,14 @@ export class PageEstoqueComponent extends Vue {
 
     produtoLabel= (item: ProdutoModel) => {
         let labelObj = {} as any;
-        labelObj.key = item.label;
+        labelObj.key = item.descricao;
         labelObj.label = `<div><span>${item.descricao}</span><div><div><span style="float:left;">${item.codigo}</span></div>`;
         return labelObj;
     }
 
     empresaLabel= (item: EmpresaModel) => {
         let labelObj = {} as any;
-        labelObj.key = item.label;
+        labelObj.key = item.nome;
         labelObj.label = `<div><span>${item.nome}</span><div><div><span style="float:left;">${item.cnpj}</span></div>`;
         return labelObj;
     }
@@ -82,6 +83,7 @@ export class PageEstoqueComponent extends Vue {
                 }
             }
             NotifyUtil.successG(I18N_ERROR_GENERIC.MODELO_SALVAR, ApplicationService.getLanguage());
+            AppRouter.push(AppRouterPath.ESTOQUE);
         }
         catch (e) {
             NotifyUtil.exception(e, ApplicationService.getLanguage());
