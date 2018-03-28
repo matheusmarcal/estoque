@@ -14,8 +14,9 @@ export enum AppRouterPath {
         USUARIO_ADD_EXTERNAL = '/usuario/cadastro',
 
         HISTORICO = '/historico',
-        HISTORICO_ADD = '/hsitorico/add',
+        HISTORICO_ADD = '/historico/add',
         HISTORICO_UPD = '/historico/:id/upd',
+        HISTORICO_ADD_AUTO = '/historico/add/:idEstoque',
 
         EMPRESA = '/empresa',
         EMPRESA_ADD = '/empresa/add',

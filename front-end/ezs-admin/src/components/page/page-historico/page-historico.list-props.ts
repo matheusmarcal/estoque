@@ -9,11 +9,11 @@ export class PageHistoricoListaProps implements PageListaPropsInterface {
 
     columns = [
         new CardTableColumn({
-            value: (item: HistoricoModel) => item.Empresa,
+            value: (item: HistoricoModel) => item.empresa.nome,
             label: () => 'CNPJ'
         }),
         new CardTableColumn({
-            value: (item: HistoricoModel) => item.Estoque,
+            value: (item: HistoricoModel) => item.estoque.produto.descricao,
             label: () => 'Produto'
         }),
         new CardTableColumn({

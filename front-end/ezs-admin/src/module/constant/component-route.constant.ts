@@ -42,4 +42,5 @@ export const COMPONENT_ROUTE_CONSTANT: Array < BaseRouteConfig > = [
     { menu: true, type: RouterPathType.list, path: AppRouterPath.HISTORICO, name: AppRouterPath.HISTORICO, component: PageListaComponent, alias: 'Historicos', props: new PageHistoricoListaProps() },
     { menu: false, type: RouterPathType.add, path: AppRouterPath.HISTORICO_ADD, name: AppRouterPath.HISTORICO_ADD, component: PageHistoricoComponent, alias: 'Historico' },
     { menu: false, type: RouterPathType.upd, path: AppRouterPath.HISTORICO_UPD, name: AppRouterPath.HISTORICO_UPD, component: PageHistoricoComponent, alias: 'Historico' },
+    { menu: false, type: RouterPathType.add, path: AppRouterPath.HISTORICO_ADD_AUTO, name: AppRouterPath.HISTORICO_ADD_AUTO, component: PageHistoricoComponent, alias: 'Historico' },
 ];

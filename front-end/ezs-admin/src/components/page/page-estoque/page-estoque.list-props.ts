@@ -3,8 +3,13 @@ import { CardTableColumn, CardTableMenuEntry } from '../../../../../ezs-common/s
 import { AppRouterPath } from '../../../app.router.path';
 import { Factory } from '../../../module/constant/factory.constant';
 import { EstoqueModel } from '../../../../../ezs-common/src/model/server/estoque.model';
+import { AppRouter } from '../../../app.router';
 
 export class PageEstoqueListaProps implements PageListaPropsInterface {
+
+    async doRetirar(item: EstoqueModel) {
+        AppRouter.push({ name: AppRouterPath.HISTORICO_ADD_AUTO, params: { idEstoque: item.id.toString() } });
+    }
 
     columns = [
         new CardTableColumn({
@@ -32,7 +37,17 @@ export class PageEstoqueListaProps implements PageListaPropsInterface {
             label: () => 'Posição'
         })
     ];
-    menu = { row: [], main: [] };
+    menu = {
+        row: [
+            new CardTableMenuEntry({
+                label: (item) => 'Retirar',
+                method: (item) => this.doRetirar(item),
+                btnClass: (item) => ['btn-primary'],
+                iconClass: (item) => ['fa', 'fa-plus']
+            })
+        ],
+         main: []
+    };
     routePathAdd = AppRouterPath.ESTOQUE_ADD;
     routePathUpdate = AppRouterPath.ESTOQUE_UPD;
     query = Factory.EstoqueFactory.all;
